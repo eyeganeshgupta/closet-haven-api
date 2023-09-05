@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import cors from "cors";
 import express from "express";
 import Stripe from "stripe";
 import dbConnect from "../config/dbConnect.js";
@@ -19,6 +20,10 @@ dotenv.config();
 dbConnect();
 
 const app = express();
+
+// cors
+// ! this one will allow any client to access aur api.
+app.use(cors());
 
 // stripe webhook
 // stripe instance
