@@ -36,7 +36,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
     }
 
     // get discount
-    const discount = couponFound?.discount / 100;
+    // const discount = couponFound?.discount / 100;
   }
 
   // 3. Check if the user has shipping address
@@ -54,10 +54,9 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
     user: user?._id,
     orderItems,
     shippingAddress,
-    totalPrice: couponFound ? totalPrice - totalPrice * discount : totalPrice,
+    // totalPrice: couponFound ? totalPrice - totalPrice * discount : totalPrice,
+    totalPrice,
   });
-
-  console.log(order);
 
   // 6. Update the product quantity
   const products = await Product.find({ _id: { $in: orderItems } });
