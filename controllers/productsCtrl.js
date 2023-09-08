@@ -89,9 +89,13 @@ export const getProductsCtrl = asyncHandler(async (request, response) => {
 
   // filter by category
   if (request.query.category) {
-    productQuery = productQuery.find({
-      category: { $regex: request.query.category, $options: "i" },
-    });
+    if (request.query.category === "Men" || request.query.category === "men") {
+      productQuery = productQuery.find({ category: "Men" });
+    } else {
+      productQuery = productQuery.find({
+        category: { $regex: request.query.category, $options: "i" },
+      });
+    }
   }
 
   // filter by color
