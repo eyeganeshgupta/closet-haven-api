@@ -61,12 +61,12 @@ export const getCouponCtrl = asyncHandler(async (request, response) => {
     code: request.query.code,
   });
 
-  // ? check if the coupon is expired
-  if (coupon === null) {
+  // ? check if coupon is not found
+  if (!coupon) {
     throw new Error("Coupon not found");
   }
 
-  // ? chcek if coupon is not found
+  // ? check if the coupon is expired
   if (coupon.isExpired) {
     throw new Error("Coupon expired");
   }
