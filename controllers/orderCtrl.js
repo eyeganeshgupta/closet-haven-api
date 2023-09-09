@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import Order from "../model/Order.js";
 import User from "../model/User.js";
 import Product from "../model/Product.js";
-import Coupon from "../model/Coupon.js";
+// import Coupon from "../model/Coupon.js";
 
 dotenv.config();
 
@@ -21,6 +21,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
   // 2. Get the payload(orderItems, shippingAddress, totalPrice)
   const { orderItems, shippingAddress, totalPrice } = request.body;
 
+  /*
   // Get the coupon
   let couponFound = false;
   const { coupon } = request?.query;
@@ -38,6 +39,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
     // get discount
     // const discount = couponFound?.discount / 100;
   }
+  */
 
   // 3. Check if the user has shipping address
   if (!user?.hasShippingAddress) {
