@@ -58,7 +58,7 @@ export const getAllCouponsCtrl = asyncHandler(async (request, response) => {
 // @access      Private/Admin
 export const getCouponCtrl = asyncHandler(async (request, response) => {
   const coupon = await Coupon.findOne({
-    code: request.body.code,
+    code: request.query.code,
   });
 
   // ? check if the coupon is expired
