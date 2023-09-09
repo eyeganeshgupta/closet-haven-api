@@ -185,7 +185,13 @@ export const getProductsCtrl = asyncHandler(async (request, response) => {
 // @route       GET /api/products/:id
 // @access      Public
 export const getProductCtrl = asyncHandler(async (request, response) => {
-  const product = await Product.findById(request.params.id).populate("reviews");
+  const product = await Product.findById(request.params.id).populate({
+    path: "reviews",
+    populate: {
+      path: "user",
+      select: "fullname",
+    }
+  });
 
   if (!product) {
     throw new Error("Product not found!");
