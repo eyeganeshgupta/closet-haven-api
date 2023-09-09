@@ -60,11 +60,6 @@ export const getCouponCtrl = asyncHandler(async (request, response) => {
   const coupon = await Coupon.findOne({
     code: request.query.code,
   });
-  
-  console.log(request);
-  console.log(request.query);
-  console.log(request.query.code);
-  console.log(coupon);
 
   // ? check if coupon is not found
   if (!coupon) {

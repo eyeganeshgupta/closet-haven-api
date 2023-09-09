@@ -10,7 +10,7 @@ export const createColorCtrl = asyncHandler(async (request, response) => {
   // color exists
   const colorFound = await Color.findOne({ name });
   if (colorFound) {
-    throw new Error("Brand already exists");
+    throw new Error("Color already exists");
   }
 
   // create color
