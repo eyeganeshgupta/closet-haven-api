@@ -57,7 +57,20 @@ export const getAllCouponsCtrl = asyncHandler(async (request, response) => {
 // @route       GET /api/v1/coupons/:id
 // @access      Private/Admin
 export const getCouponCtrl = asyncHandler(async (request, response) => {
-  const coupon = await Coupon.findById(request.params.id);
+  const coupon = await Coupon.findOne({
+    code: request.body.code,
+  });
+
+  // ? check if the coupon is expired
+  if (coupon === null) {
+    throw new Error("Coupon not found");
+  }
+
+  // ? chcek if coupon is not found
+  if (coupon.isExpired) {
+    throw new Error("Coupon expired");
+  }
+
   response.json({
     status: "success",
     message: "Coupon fetched",
