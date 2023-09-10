@@ -116,7 +116,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
 // @access      Private
 export const getAllOrdersCtrl = asyncHandler(async (request, response) => {
   // find/fetch all orders
-  const orders = await Order.find();
+  const orders = await Order.find().populate("user");
   response.json({
     success: true,
     message: "All orders",
