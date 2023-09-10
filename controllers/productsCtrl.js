@@ -236,6 +236,7 @@ export const updateProductCtrl = asyncHandler(async (request, response) => {
     },
     {
       new: true,
+      runValidators: true,
     }
   );
 
