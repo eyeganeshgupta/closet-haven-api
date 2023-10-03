@@ -99,7 +99,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
       orderId: JSON.stringify(order?._id),
     },
     mode: "payment",
-    success_url: "http://localhost:3000/success",
+    success_url: "https://closet-heaven.netlify.app/success",
     cancel_url: "http://localhost:3000/cancel",
   });
 
