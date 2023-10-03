@@ -100,7 +100,7 @@ export const createOrderCtrl = asyncHandler(async (request, response) => {
     },
     mode: "payment",
     success_url: "https://closet-heaven.netlify.app/success",
-    cancel_url: "http://localhost:3000/cancel",
+    cancel_url: "https://closet-heaven.netlify.app/cancel",
   });
 
   response.send({
